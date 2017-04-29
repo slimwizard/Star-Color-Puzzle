@@ -117,7 +117,7 @@ class Game(Frame):
             #if all answers are not right then points will be deducted and responses list is emptied
             else:
                 points -= 5
-                print "current points = {}".format(points)
+                print "current points = {}\n\n".format(points)
                 del responses
                 del tip
                 responses = []
