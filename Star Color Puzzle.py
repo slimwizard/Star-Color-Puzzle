@@ -53,8 +53,6 @@ class Game(Frame):
         
     #main function that runs the puzzle
     def play(self):
-        global responses
-        responses = []
         self.setGUI()
         self.setImage()
 
@@ -135,6 +133,7 @@ wrongAns = 0
 answers = ["blue", "white", "yellow", "red", "orange"]
 #creates new list with order shuffled around
 answers = sample(answers, len(answers))
+responses = []
 
 
 #starting points
