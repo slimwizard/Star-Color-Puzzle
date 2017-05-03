@@ -55,7 +55,7 @@ class Game(Frame):
     def play(self):
         self.setGUI()
         self.setImage()
-
+        
 
     #process players input and adds to list
     def process(self, event):
@@ -73,11 +73,13 @@ class Game(Frame):
 
 
         #gives hint if 3 answers are input that arent valid
-        if wrongAns == 2:
+        if wrongAns  == 2:
             Game.img = PhotoImage(file="const4.gif")
             Game.image.config(image = Game.img)
             Game.image.image = Game.img
-                
+
+        if wrongAns == 5:
+            pass
         
             
 
@@ -110,8 +112,37 @@ class Game(Frame):
 
             print tip
             if tip == ["correct", "correct", "correct", "correct", "correct"]:
-                #something will happen if player wins
-                pass
+                #something will happen if player wins (You can make a function out of the following if wanted)
+                #dislays gif for amount of points recieved.
+                if (points == 30):
+                    Game.img = PhotoImage(file="score30.gif")  
+                    Game.image.config(image = Game.img)
+                    Game.image.image = Game.img
+                elif (points == 25):
+                    Game.img = PhotoImage(file="score25.gif")
+                    Game.image.config(image = Game.img)
+                    Game.image.image = Game.img
+                elif (points == 20):
+                    Game.img = PhotoImage(file="score20.gif")
+                    Game.image.config(image = Game.img)
+                    Game.image.image = Game.img
+                elif (points == 15):
+                    Game.img = PhotoImage(file="score15.gif")
+                    Game.image.config(image = Game.img)
+                    Game.image.image = Game.img
+                elif (points == 10):
+                    Game.img = PhotoImage(file="score10.gif")
+                    Game.image.config(image = Game.img)
+                    Game.image.image = Game.img
+                elif (points == 5):
+                    Game.img = PhotoImage(file="score5.gif")
+                    Game.image.config(image = Game.img)
+                    Game.image.image = Game.img
+                else:
+                    Game.img = PhotoImage(file="score0.gif")
+                    Game.image.config(image = Game.img)
+                    Game.image.image = Game.img
+                
             #if all answers are not right then points will be deducted and responses list is emptied
             else:
                 points -= 5
