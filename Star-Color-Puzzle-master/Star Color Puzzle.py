@@ -7,6 +7,31 @@
 
 from Tkinter import *
 from random import sample
+import RPi.GPIO as GPIO
+from time import sleep
+from sys import exit
+
+
+
+#sets up GPIO pins for red and green LED's
+red = 18
+green = 23
+
+
+def setupGPIO():
+    GPIO.setmode(GPIO.BCM)
+    colors = [red, green]
+    for i in colors:
+        GPIO.setup(i, GPIO.OUT)
+
+    return colors
+
+def blink(pin):
+    GPIO.output(pin, GPIO.HIGH)
+    sleep(.1)
+    GPIO.output(pin, GPIO.LOW)
+    sleep(.2)
+
 
 
 
@@ -145,8 +170,15 @@ class Game(Frame):
                 
             #if all answers are not right then points will be deducted and responses list is emptied
             else:
-                points -= 5
+                points -= 2
                 print "current points = {}\n\n".format(points)
+                for i in range(len(tip)):
+                    if tip[i] == "correct":
+                        blink(green)
+                        
+                    elif tip[i] == "incorrect":
+                        blink(red)
+                        
                 del responses
                 del tip
                 responses = []
@@ -170,6 +202,7 @@ responses = []
 #starting points
 points = 30
 
+setupGPIO()
 
 g.play()
 
