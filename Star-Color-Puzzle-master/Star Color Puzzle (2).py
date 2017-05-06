@@ -193,7 +193,7 @@ class Game(Frame):
 
         #creates Label in GUI where image will be displayed
         img = None
-        Game.image = Label(self, width=800, image=img)
+        Game.image = Label(self, width=WIDTH, height=HEIGHT, image=img)
         Game.image.image = img
         Game.image.pack(fill=Y)
         Game.image.pack_propagate(False)
@@ -329,7 +329,10 @@ class Game(Frame):
             
         
 
-            
+WIDTH = 800
+HEIGHT = 490
+
+           
 window = Tk()
 window.title("Game")
 
