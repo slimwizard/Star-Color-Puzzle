@@ -1,5 +1,8 @@
-
-
+##############################################################################
+# Program: Star Color Puzzle                                                 #
+# Group Members: Matthew Rice, Luke Tucker, Gavin Simon, Colby Austin        #
+# Date: 05/11/17                                                             #              
+##############################################################################
 
 
 
@@ -106,6 +109,7 @@ def allPurple():
 def allWhite():
     for i in rgbSet:
         i.makeWhite()
+        
 #light display when puzzle is solved       
 def gameOver():
     for i in range(8):
@@ -120,6 +124,14 @@ def gameOver():
         allRed()
         sleep(.05)
         allGreen()
+        sleep(.05)
+
+#RGBs blink white when new puzzle is started
+def startingLights():
+    for i in range(10):
+        allWhite()
+        sleep(.05)
+        allOff()
         sleep(.05)
         
         
@@ -206,6 +218,7 @@ class Game(Frame):
         
     #main function that runs the puzzle
     def play(self):
+        startingLights()
         self.setGUI()
         self.setImage(screens["home"])
         
@@ -230,10 +243,7 @@ class Game(Frame):
         if wrongAns  == 2:
             self.setImage(screens["hint"])
 
-        if wrongAns == 5:
-            pass
-        
-            
+                
 
 
         #if answer is acceptable color it is added to the response list
